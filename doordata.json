@@ -1,0 +1,21 @@
+{
+
+    "GP100": "Here are the GP100 Doors",
+
+    "GP_24x24_DoorsPerSheet":8,
+    "GP_24x24_RFsPerSheet":51,
+
+    "GP_18x18_DoorsPerSheet":10,
+    "GP_18x18_RFsPerSheet":66,
+  
+    "GP_12x12_DoorsPerSheet":21,
+    "GP_12x12_RFsPerSheet":96,
+
+    
+    "UAD200": "Here are the UAD200 Doors",
+
+    "UAD_12x12_DoorsPerSheet":32,
+    "UAD_12x12_RFsPerSheet":99
+
+
+  }
