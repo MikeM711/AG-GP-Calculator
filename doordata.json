@@ -2,11 +2,17 @@
 
     "B300": "Here are the B300 Doors",
 
+    "B300_8x8_FullAssyPerSheet":20,
+    "B300_10x10_FullAssyPerSheet":13,
     "B300_12x12_FullAssyPerSheet":12,
-
     "B300_18x18_FullAssyPerSheet":7,
-
+    "B300_20x20_FullAssyPerSheet":6,
     "B300_24x24_FullAssyPerSheet":4,
+    "B300_30x30_FullAssyPerSheet":3,
+
+    "EXT1350": "Here are the EXT1350 Doors",
+
+    "EXT1350_30x30_FullAssyPerSheet":1,
 
     "GP100": "Here are the GP100 Doors",
 
@@ -16,8 +22,21 @@
     "GP_18x18_DoorsPerSheet":10,
     "GP_18x18_RFsPerSheet":66,
 
+    "GP_12x18_DoorsPerSheet":15,
+
     "GP_24x24_DoorsPerSheet":8,
     "GP_24x24_RFsPerSheet":51,
+
+    "GP_24x36_DoorsPerSheet":6,
+
+    "GP_36x36_DoorsPerSheet":2,
+    "GP_36x36_RFsPerSheet":36,
+
+    "GP_36x48_DoorsPerSheet":2,
+
+    "GP_48x48_DoorsPerSheet":2,
+    "GP_48x48_RFsPerSheet":22,
+
     
     "UAD200": "Here are the UAD200 Doors",
 

@@ -14,7 +14,7 @@
     </p>
   <!-- App Controller is the template, appCtrl is the parameters we are using to make the template function-->
   <body data-ng-controller="AppController as appCtrl"></body> <!–– has dropdown>
-    <h1>Solve for WB Door Material</h1>
+    <h1>WB Door Material Calculator</h1>
     <div class="solve"> <!–– deleting this causes UI to become diffent>
       <h2 data-ng-show="appCtrl.error" class="error">{{appCtrl.error}}</h2>
       <form method="post">
@@ -55,10 +55,12 @@
       <h1>Results</h1>
       <div class="result">
         <h2 data-ng-repeat="result in appCtrl.results">{{result.value1}} {{result.operator}} 
-            <p align="center">{{result.result}}  | 14GA sheets 120x60</p>
-            <p align="center">{{result.value_16GA_120x48}} | 16GA sheets 120x48</p>
+          <p align="center">{{result.note}}</p>  
+          <p align="center">{{result.result}}  | 14GA sheets 120x60</p>
+          <p align="center">{{result.value_16GA_120x48}} | 16GA sheets 120x48</p>
           <p align="center">{{result.value_16GA_120x60}} | 16GA sheets 120x60</p>
           <p align="center">{{result.value_18GA}} | 18GA sheets 120x48</p>
+          
         </h2>
       </div>
     </div>

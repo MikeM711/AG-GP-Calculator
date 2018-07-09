@@ -22,6 +22,10 @@ p {
   line-height: 0.7em;
   }
 
+p2 {
+  line-height: 0.7em;
+  }
+
 .error {
   color: red;
 }

@@ -15,16 +15,29 @@ var config = require('./doordata.json');
 // The below operators show up in the front end.  We can use them in our "calculate" section.
 let operators = [
 
+  {name:'B300 8x8', symbol:'B300 8x8'},
+  {name:'B300 10x10', symbol:'B300 10x10'},
   {name:'B300 12x12', symbol:'B300 12x12'},
   {name:'B300 18x18', symbol:'B300 18x18'},
+  {name:'B300 20x20', symbol:'B300 20x20'},
   {name:'B300 24x24', symbol:'B300 24x24'},
+  {name:'B300 30x30', symbol:'B300 30x30'},
+
+  {name:'EXT1350 30x30', symbol:'EXT1350 30x30'},
 
   {name:'GP100 12x12', symbol:'GP100 12x12'},
+  {name:'GP100 12x18', symbol:'GP100 12x18'},
   {name:'GP100 18x18', symbol:'GP100 18x18'},
   {name:'GP100 24x24', symbol:'GP100 24x24'},
+  {name:'GP100 24x36', symbol:'GP100 24x36'},
+  {name:'GP100 36x36*', symbol:'GP100 36x36*'},
+  {name:'GP100 36x48*', symbol:'GP100 36x48*'},
+  {name:'GP100 48x48', symbol:'GP100 48x48'},
+
   {name:'UAD200 12x12',symbol:'UAD200 12x12'},
   {name:'UAD200 18x18',symbol:'UAD200 18x18'},
   {name:'UAD200 24x24',symbol:'UAD200 24x24'},
+  
   
 ];
 
@@ -103,8 +116,21 @@ app.route('/calculator')
     let value_16GA_120x48 = req.body.value_16GA 
     let value_16GA_120x60 = req.body.value_16GA
     let value_18GA = req.body.value_18GA
+    let note = req.body.note
 
     //BASIC Door calculation
+
+    if ( operator == 'B300 8x8')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.B300_8x8_FullAssyPerSheet}
+
+    if ( operator == 'B300 10x10')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.B300_10x10_FullAssyPerSheet}
 
     if ( operator == 'B300 12x12')
     {value_14GA = 0;
@@ -118,11 +144,32 @@ app.route('/calculator')
     value_16GA_120x60 = 0;
     value_18GA = value1/config.B300_18x18_FullAssyPerSheet}
 
+    if ( operator == 'B300 20x20')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.B300_20x20_FullAssyPerSheet}
+
     if ( operator == 'B300 24x24')
     {value_14GA = 0;
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.B300_24x24_FullAssyPerSheet}
+
+    if ( operator == 'B300 30x30')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.B300_30x30_FullAssyPerSheet}
+
+    //EXT1350 Door Calculation
+
+    if ( operator == 'EXT1350 30x30')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.EXT1350_30x30_FullAssyPerSheet}
+
 
     //GP100 Door Calculation
 
@@ -131,6 +178,13 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = (value1*4) / config.GP_12x12_RFsPerSheet}
+
+    if ( operator == 'GP100 12x18' )   
+    {value_14GA = value1 / config.GP_12x18_DoorsPerSheet;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = ((value1*2) / config.GP_12x12_RFsPerSheet) + ((value1*2) / config.GP_18x18_RFsPerSheet)
+    }
 
     if ( operator == 'GP100 18x18' )   
     {value_14GA = value1 / config.GP_18x18_DoorsPerSheet;
@@ -144,7 +198,39 @@ app.route('/calculator')
     value_16GA_120x60 = 0;
     value_18GA = (value1*4) / config.GP_24x24_RFsPerSheet}
 
-    
+    if ( operator == 'GP100 24x36' )   
+    {value_14GA = value1 / config.GP_24x36_DoorsPerSheet;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = ((value1*2) / config.GP_24x24_RFsPerSheet) + ((value1*2) / config.GP_36x36_RFsPerSheet)
+    }
+
+
+
+
+    if ( operator == 'GP100 36x36*' )   
+    {//note = "Can fit +2 exta GP100 24x24s in nest"
+    value_14GA = value1 / config.GP_36x36_DoorsPerSheet;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = (value1*4) / config.GP_36x36_RFsPerSheet
+    }
+
+    if ( operator == 'GP100 36x48*' )   
+    {//note = "Can fit +2 exta GP100 24x24s in nest"
+    value_14GA = value1 / config.GP_36x48_DoorsPerSheet;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = ((value1*2) / config.GP_36x36_RFsPerSheet) + ((value1*2) / config.GP_48x48_RFsPerSheet)
+    }
+
+    if ( operator == 'GP100 48x48' )   
+    {value_14GA = value1 / config.GP_48x48_DoorsPerSheet;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = (value1*4) / config.GP_48x48_RFsPerSheet}
+
+
 
     //UAD200 Door Calculation
 
@@ -293,6 +379,7 @@ app.route('/calculator')
         value_18GA,
         value_16GA_120x60,
         value_16GA_120x48,
+        note,
       },
 
       output: {
