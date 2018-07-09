@@ -16,6 +16,9 @@
 
     "GP100": "Here are the GP100 Doors",
 
+    "GP_8x8_DoorsPerSheet":36,
+    "GP_8x8_RFsPerSheet":132,
+
     "GP_12x12_DoorsPerSheet":21,
     "GP_12x12_RFsPerSheet":96,
 

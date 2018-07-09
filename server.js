@@ -1,6 +1,6 @@
 'use strict';
 
-//hello it is 7_9 3:23 pm
+//hello it is 7_9 3:36 pm
 
 //add mongodb to heroku https://www.youtube.com/watch?v=N42pkl-aIIQ
 
@@ -25,6 +25,8 @@ let operators = [
 
   {name:'EXT1350 30x30', symbol:'EXT1350 30x30'},
 
+
+  {name:'GP100 8x8', symbol:'GP100 8x8'},
   {name:'GP100 12x12', symbol:'GP100 12x12'},
   {name:'GP100 12x18', symbol:'GP100 12x18'},
   {name:'GP100 18x18', symbol:'GP100 18x18'},
@@ -172,6 +174,12 @@ app.route('/calculator')
 
 
     //GP100 Door Calculation
+
+    if ( operator == 'GP100 8x8' )   
+    {value_14GA = value1 / config.GP_8x8_DoorsPerSheet;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = (value1*4) / config.GP_8x8_RFsPerSheet}
 
     if ( operator == 'GP100 12x12' )   
     {value_14GA = value1 / config.GP_12x12_DoorsPerSheet;
