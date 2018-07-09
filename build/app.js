@@ -15,7 +15,7 @@ var sum = 0
 app.controller('AppController', ['$http', function($http) {
 
   //Because I am currently using localhost, I use the localhost:3000/calculator as my apiRoute
-  
+
    //var apiRoute = 'http://localhost:3000/calculator';
 
    var apiRoute = 'https://ag-wb-calculator.herokuapp.com/calculator';

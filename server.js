@@ -15,10 +15,16 @@ var config = require('./doordata.json');
 // The below operators show up in the front end.  We can use them in our "calculate" section.
 let operators = [
 
+  {name:'B300 12x12', symbol:'B300 12x12'},
+  {name:'B300 18x18', symbol:'B300 18x18'},
+  {name:'B300 24x24', symbol:'B300 24x24'},
+
   {name:'GP100 12x12', symbol:'GP100 12x12'},
   {name:'GP100 18x18', symbol:'GP100 18x18'},
   {name:'GP100 24x24', symbol:'GP100 24x24'},
-  {name:'UAD200 12x12',symbol:'UAD200 12x12'}
+  {name:'UAD200 12x12',symbol:'UAD200 12x12'},
+  {name:'UAD200 18x18',symbol:'UAD200 18x18'},
+  {name:'UAD200 24x24',symbol:'UAD200 24x24'},
   
 ];
 
@@ -98,7 +104,25 @@ app.route('/calculator')
     let value_16GA_120x60 = req.body.value_16GA
     let value_18GA = req.body.value_18GA
 
+    //BASIC Door calculation
 
+    if ( operator == 'B300 12x12')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.B300_12x12_FullAssyPerSheet}
+  
+    if ( operator == 'B300 18x18')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.B300_18x18_FullAssyPerSheet}
+
+    if ( operator == 'B300 24x24')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.B300_24x24_FullAssyPerSheet}
 
     //GP100 Door Calculation
 
@@ -131,9 +155,21 @@ app.route('/calculator')
     value_16GA_120x48 = (value1*4) / config.UAD_12x12_RFsPerSheet;
     }
 
+    if ( operator == 'UAD200 18x18' )   
+    {value_14GA = 0;
+    value_18GA = 0;
+    value_16GA_120x60 = value1 / config.UAD_18x18_DoorsPerSheet;
+    value_16GA_120x48 = (value1*4) / config.UAD_18x18_RFsPerSheet;
+    }
+
+    if ( operator == 'UAD200 24x24' )   
+    {value_14GA = 0;
+    value_18GA = 0;
+    value_16GA_120x60 = value1 / config.UAD_24x24_DoorsPerSheet;
+    value_16GA_120x48 = (value1*4) / config.UAD_24x24_RFsPerSheet;
+    }
 
 
-    
 
     value_14GA = Math.round(value_14GA * 1000);
     value_14GA = value_14GA / 1000;
