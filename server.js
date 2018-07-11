@@ -95,12 +95,16 @@ let PORT = process.env.PORT || 3000;
 // The below operators show up in the front end.  We can use them in our "calculate" section.
 let operators = [
 
+  {name:'AL1500 48x48', symbol:'AL1500 48x48'},
+
   {name:'B300 8x8', symbol:'B300 8x8'},
   {name:'B300 10x10', symbol:'B300 10x10'},
   {name:'B300 12x12', symbol:'B300 12x12'},
   {name:'B300 16x16', symbol:'B300 16x16'},
   {name:'B300 18x18', symbol:'B300 18x18'},
+  {name:'B300 18x22', symbol:'B300 18x22'},
   {name:'B300 20x20', symbol:'B300 20x20'},
+  {name:'B300 22x30', symbol:'B300 22x30'},
   {name:'B300 24x24', symbol:'B300 24x24'},
   {name:'B300 30x30', symbol:'B300 30x30'},
 
@@ -129,6 +133,10 @@ let operators = [
 
   {name:'RP110 24x24', symbol:'RP110 24x24'},
   {name:'RP110 36x48*', symbol:'RP110 36x48*'},
+
+  {name:'SMP120 24x24', symbol:'SMP120 24x24'},
+  {name:'SMP120 24x48', symbol:'SMP120 24x48'},
+  {name:'SMP120 48x48', symbol:'SMP120 48x48'},
 
   {name:'TB1210 24x24', symbol:'TB1210 24x24'},
 
@@ -229,6 +237,16 @@ app.route('/calculator')
     let value_14GA_Al = req.body.value_14GA_Al
     let note = req.body.note
 
+    //AL1500 Door Calculation
+
+    if ( operator == 'AL1500 48x48')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_14GA_Al = value1/config.AL1500_48x48_FullAssyPerSheet;}
+
     //BASIC Door calculation
 
     if ( operator == 'B300 8x8')
@@ -236,7 +254,7 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.B300_8x8_FullAssyPerSheet;
-    value_20GA = 8;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'B300 10x10')
@@ -271,11 +289,27 @@ app.route('/calculator')
     value_20GA = 0;
     value_14GA_Al = 0;}
 
+    if ( operator == 'B300 18x22')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.B300_18x22_FullAssyPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
     if ( operator == 'B300 20x20')
     {value_14GA = 0;
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.B300_20x20_FullAssyPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'B300 22x30')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.B300_22x30_FullAssyPerSheet;
     value_20GA = 0;
     value_14GA_Al = 0;}
 
@@ -469,6 +503,41 @@ app.route('/calculator')
     value_20GA = 0;
     value_14GA_Al = 0;
     }
+
+/*
+{name:'SMP120 24x24', symbol:'SMP120 24x24'},
+  {name:'SMP120 24x48', symbol:'SMP120 24x48'},
+  {name:'SMP120 48x48', symbol:'SMP120 48x48'},
+
+*/
+
+    //SMp120 Door Calculation
+
+    if ( operator == 'SMP120 24x24')
+    {value_14GA = value1 / config.SMP_24x24_DoorsPerSheet;
+    value_16GA_120x48 = value1 / config.SMP_24x24_DoorsWorthRFsPerSheet;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_14GA_Al = 0}
+
+    if ( operator == 'SMP120 24x48')
+    {value_14GA = value1 / config.SMP_24x48_DoorsPerSheet;
+    value_16GA_120x48 = value1 / config.SMP_24x48_DoorsWorthRFsPerSheet;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_14GA_Al = 0}
+
+    if ( operator == 'SMP120 48x48')
+    {value_14GA = value1 / config.SMP_48x48_DoorsPerSheet;
+    value_16GA_120x48 = value1 / config.SMP_48x48_DoorsWorthRFsPerSheet;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_14GA_Al = 0}
+
+
 
     //TB1210 Door Calculation
 

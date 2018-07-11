@@ -1,5 +1,9 @@
 {
 
+    "AL1500": "Here are the AL1500 Doors",
+
+    "AL1500_48x48_FullAssyPerSheet":1.87,
+
     "B300": "Here are the B300 Doors",
 
     "B300_8x8_FullAssyPerSheet":20,
@@ -7,7 +11,9 @@
     "B300_12x12_FullAssyPerSheet":12,
     "B300_16x16_FullAssyPerSheet":7,
     "B300_18x18_FullAssyPerSheet":7,
+    "B300_18x22_FullAssyPerSheet":6,
     "B300_20x20_FullAssyPerSheet":6,
+    "B300_22x30_FullAssyPerSheet":4,
     "B300_24x24_FullAssyPerSheet":4,
     "B300_30x30_FullAssyPerSheet":3,
 
@@ -66,6 +72,19 @@
 
     "RP_24x24_DoorsPerSheet":8,
     "RP_36x48_DoorsPerSheet":2,
+
+    "SMP120": "Here are the SMP120 Doors",
+    "SMP120_INFO": "SMP RETURN FRAMES ARE CALCULATED FROM PUNCH",
+
+    "SMP_24x24_DoorsPerSheet":8,
+    "SMP_24x24_DoorsWorthRFsPerSheet":30,
+
+    "SMP_24x48_DoorsPerSheet":4,
+    "SMP_24x48_DoorsWorthRFsPerSheet":23,
+
+    "SMP_48x48_DoorsPerSheet":2,
+    "SMP_48x48_DoorsWorthRFsPerSheet":14.666,
+
 
     "TB1210": "Here are the TB1210 Doors",
 
