@@ -1,16 +1,96 @@
+// Questions: (?)
+
+/*
+
+    ----About Node.js----
+
+- Not a language, framework or tool (obv)
+- Node.js is a runtime environment for running JavaScript-based applications
+- Node.js libraries, aka Node Modules, help run JavaScript applications at runtime, similar to Java Libraries within the JRE.
+
+*/
+
+/*
+
+    ----Create a package.JSON file----
+
+- You can do it manually, but it's too slow
+- simply write |npm init| inside the VS Code terminal to generate
+
+*/
+
 'use strict';
 
-//hello it is 7_9 3:36 pm
+/* 
 
-//add mongodb to heroku https://www.youtube.com/watch?v=N42pkl-aIIQ
+    ----About'use strict'----
 
-// mobile listen: 10.0.0.240:3000
+- If I take out 'use strict' it doesn't do anything.
+
+https://stackoverflow.com/questions/1335851/what-does-use-strict-do-in-javascript-and-what-is-the-reasoning-behind-it
+
+Strict Mode is a new feature in ECMAScript 5 that allows you to place a program, or a function, in a "strict" operating context. This strict context prevents certain actions from being taken and throws more exceptions.
+
+Summary:
+- You can't use confusing codes
+- Helps make fewer errors
+
+*/
 
 const express = require('express');
 const app = express();
 let PORT = process.env.PORT || 3000;
 
+
+
 var config = require('./doordata.json');
+
+/* 
+
+    ----const express = require('express');----
+
+- In order to use express, we must install it
+- Install express by saying |npm install --save express|
+- Go to your package.JSON (created by npm init), doing the above command added express as a dependency to our file and created a node_modules folder
+- Apparently this whole time I did not use the node_modules folder AT ALL ! That's because it is looking a node_folder at another directory (keep reading)
+
+- We would like to bring in the MODULE "express".
+- Whenever we want to install a module, we need to use the require() FUNCTION
+
+- var can be substituted for const, both creates a variable, both work
+- var: if there's room for error, var should be used
+- const: if the information never changes in the lifetime of the program, const should be used
+
+- You can use single quotes '' or double quotes ""
+
+    ----Explaining deleting of modules, why it is working----
+
+https://stackoverflow.com/questions/47625524/how-does-lodash-continue-to-work-after-ive-deleted-packages-json-package-lock
+
+When require attempts to resolve a module, it first looks in your local directory for a node_modules folder. If it can't find it, it will look at the parent directory to try and find it. If it can't find it there, it will keep going all the way up the directory hierarchy.
+
+- If we add the code:
+    console.log( require.resolve('express') )
+  It is saying that "express" is in C:\Users\AG Laser Technology\node_modules\express\index.js
+- Basically, it is pulling node modules outside of the folder!
+
+Learned: 
+    require.resolve
+  ^ Indicates location of the file of something (use console.log to have it appear)
+
+Uninstalling/Installing express:
+    - | npm uninstall <name> | ... When express was uninstalled, the dependency was removed in JSON, but was still able to run expresss (?)
+    - Re-installing express put the dependency back into JSON
+    - Does the package.json even matter (?)
+
+
+
+let PORT = process.env.PORT || 3000;
+^ Can be anywhere in the code, it's ok
+*/
+
+
+
 
 // The below operators show up in the front end.  We can use them in our "calculate" section.
 let operators = [
@@ -27,6 +107,9 @@ let operators = [
 
   {name:'EXT1350 24x24', symbol:'EXT1350 24x24'},
   {name:'EXT1350 30x30', symbol:'EXT1350 30x30'},
+
+
+  {name:'FR800 12x12', symbol:'FR800 12x12'},
 
 
   {name:'GP100 8x8', symbol:'GP100 8x8'},
@@ -107,6 +190,7 @@ var array_14GA = [];
 var array_16GA_120x48= [];
 var array_16GA_120x60 = [];
 var array_18GA = [];
+var array_20GA = [];
 var array_14GA_Al = []; //Aluminum
 
 app.route('/calculator')
@@ -122,6 +206,7 @@ app.route('/calculator')
     array_16GA_120x48 = [];
     array_16GA_120x60 = [];
     array_18GA = [];
+    array_20GA = [];
     array_14GA_Al = [];
   })
   
@@ -137,6 +222,10 @@ app.route('/calculator')
     let value_16GA_120x48 = req.body.value_16GA 
     let value_16GA_120x60 = req.body.value_16GA
     let value_18GA = req.body.value_18GA
+    let value_20GA = req.body.value_20GA
+
+    
+
     let value_14GA_Al = req.body.value_14GA_Al
     let note = req.body.note
 
@@ -147,6 +236,7 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.B300_8x8_FullAssyPerSheet;
+    value_20GA = 8;
     value_14GA_Al = 0;}
 
     if ( operator == 'B300 10x10')
@@ -154,6 +244,7 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.B300_10x10_FullAssyPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'B300 12x12')
@@ -161,6 +252,7 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.B300_12x12_FullAssyPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'B300 16x16')
@@ -168,6 +260,7 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.B300_16x16_FullAssyPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
   
     if ( operator == 'B300 18x18')
@@ -175,6 +268,7 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.B300_18x18_FullAssyPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'B300 20x20')
@@ -182,6 +276,7 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.B300_20x20_FullAssyPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'B300 24x24')
@@ -189,6 +284,7 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.B300_24x24_FullAssyPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'B300 30x30')
@@ -196,6 +292,7 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.B300_30x30_FullAssyPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     //EXT1350 Door Calculation
@@ -205,6 +302,7 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.EXT1350_24x24_FullAssyPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
     
     if ( operator == 'EXT1350 30x30')
@@ -212,7 +310,19 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.EXT1350_30x30_FullAssyPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
+
+    //FR800 Door Calculation
+
+    if ( operator == 'FR800 12x12' )   
+    {value_14GA = value1 / config.FR800_12x12_14GA;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = value1 / config.FR800_12x12_16GA;
+    value_18GA = value1 / config.FR800_12x12_18GA;
+    value_20GA = value1 / config.FR800_12x12_20GA;
+    value_14GA_Al = 0;}
+
 
 
     //GP100 Door Calculation
@@ -222,6 +332,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = (value1*4) / config.GP_8x8_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'GP100 12x12' )   
@@ -229,6 +340,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = (value1*4) / config.GP_12x12_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'GP100 12x18' )   
@@ -236,6 +348,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = ((value1*2) / config.GP_12x12_RFsPerSheet) + ((value1*2) / config.GP_18x18_RFsPerSheet);
+    value_20GA = 0;
     value_14GA_Al = 0;
     }
 
@@ -244,6 +357,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = (value1*4) / config.GP_18x18_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'GP100 20x20' )   
@@ -251,6 +365,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = (value1*4) / config.GP_20x20_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'GP100 20x30' )   
@@ -258,6 +373,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = ((value1*2) / config.GP_20x20_RFsPerSheet) + ((value1*2) / config.GP_30x30_RFsPerSheet);
+    value_20GA = 0;
     value_14GA_Al = 0;
     }
 
@@ -266,6 +382,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = (value1*4) / config.GP_22x22_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'GP100 22x30' )   
@@ -273,6 +390,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = ((value1*2) / config.GP_22x22_RFsPerSheet) + ((value1*2) / config.GP_30x30_RFsPerSheet);
+    value_20GA = 0;
     value_14GA_Al = 0;
     }
 
@@ -281,6 +399,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = (value1*4) / config.GP_24x24_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'GP100 24x36' )   
@@ -288,6 +407,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = ((value1*2) / config.GP_24x24_RFsPerSheet) + ((value1*2) / config.GP_36x36_RFsPerSheet);
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'GP100 30x30' )   
@@ -295,6 +415,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = (value1*4) / config.GP_30x30_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
 
@@ -304,6 +425,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = (value1*4) / config.GP_36x36_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;
     }
 
@@ -313,6 +435,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = ((value1*2) / config.GP_36x36_RFsPerSheet) + ((value1*2) / config.GP_48x48_RFsPerSheet);
+    value_20GA = 0;
     value_14GA_Al = 0;
     }
 
@@ -320,8 +443,12 @@ app.route('/calculator')
     {value_14GA = value1 / config.GP_48x48_DoorsPerSheet;
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
-    value_18GA = (value1*4) / config.GP_48x48_RFsPerSheet};
+    value_18GA = (value1*4) / config.GP_48x48_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;
+    }
+// had a very bad coding error at the top ^, `}` bracket didn't encapsulate the full `if` statement for the GP 48x48s.....
+
 
     //RP110 Door Calculation
 
@@ -330,6 +457,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = (value1*4) / config.GP_24x24_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'RP110 36x48*' )   
@@ -338,6 +466,7 @@ app.route('/calculator')
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
     value_18GA = ((value1*2) / config.GP_36x36_RFsPerSheet) + ((value1*2) / config.GP_48x48_RFsPerSheet);
+    value_20GA = 0;
     value_14GA_Al = 0;
     }
 
@@ -348,6 +477,7 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = 0;
+    value_20GA = 0;
     value_14GA_Al = value1 / config.TB_24x24_FullAssyPerSheet;}
 
     //UAD200 Door Calculation
@@ -357,6 +487,7 @@ app.route('/calculator')
     value_18GA = 0;
     value_16GA_120x60 = value1 / config.UAD_6x6_DoorsPerSheet;
     value_16GA_120x48 = (value1*4) / config.UAD_6x6_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'UAD200 8x8' )   
@@ -364,6 +495,7 @@ app.route('/calculator')
     value_18GA = 0;
     value_16GA_120x60 = value1 / config.UAD_8x8_DoorsPerSheet;
     value_16GA_120x48 = (value1*4) / config.UAD_8x8_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'UAD200 12x12' )   
@@ -371,6 +503,7 @@ app.route('/calculator')
     value_18GA = 0;
     value_16GA_120x60 = value1 / config.UAD_12x12_DoorsPerSheet;
     value_16GA_120x48 = (value1*4) / config.UAD_12x12_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'UAD200 14x14' )   
@@ -378,6 +511,7 @@ app.route('/calculator')
     value_18GA = 0;
     value_16GA_120x60 = value1 / config.UAD_14x14_DoorsPerSheet;
     value_16GA_120x48 = (value1*4) / config.UAD_14x14_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'UAD200 16x16' )   
@@ -385,6 +519,7 @@ app.route('/calculator')
     value_18GA = 0;
     value_16GA_120x60 = value1 / config.UAD_16x16_DoorsPerSheet;
     value_16GA_120x48 = (value1*4) / config.UAD_16x16_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'UAD200 18x18' )   
@@ -392,6 +527,7 @@ app.route('/calculator')
     value_18GA = 0;
     value_16GA_120x60 = value1 / config.UAD_18x18_DoorsPerSheet;
     value_16GA_120x48 = (value1*4) / config.UAD_18x18_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
     if ( operator == 'UAD200 24x24' )   
@@ -399,9 +535,11 @@ app.route('/calculator')
     value_18GA = 0;
     value_16GA_120x60 = value1 / config.UAD_24x24_DoorsPerSheet;
     value_16GA_120x48 = (value1*4) / config.UAD_24x24_RFsPerSheet;
+    value_20GA = 0;
     value_14GA_Al = 0;}
 
-
+    
+    console.log(value_20GA, 'Value 20GA')
 
     value_14GA = Math.round(value_14GA * 1000);
     value_14GA = value_14GA / 1000;
@@ -516,7 +654,20 @@ app.route('/calculator')
 
     var lastsum_14GA_Al = sum_14GA_Al
 
+    // Calculate the 20GA Cold Roll
 
+
+    value_20GA = Math.round(value_20GA * 1000);
+    value_20GA = value_20GA / 1000;
+
+    array_20GA.push(value_20GA);
+
+    var sum_20GA = array_20GA.reduce(function(a, b) { return a + b; }, 0);
+
+    sum_20GA = Math.round(sum_20GA * 1000);
+    sum_20GA = sum_20GA / 1000;
+
+    var lastsum_20GA = sum_20GA
 
 
     res.json({
@@ -535,6 +686,9 @@ app.route('/calculator')
       E:
         lastsum_14GA_Al,
 
+      F:
+        lastsum_20GA,
+
       result: {   
         operator: req.body.operator.symbol, 
         value1,
@@ -542,6 +696,7 @@ app.route('/calculator')
         value_18GA,
         value_16GA_120x60,
         value_16GA_120x48,
+        value_20GA,
         value_14GA_Al,
         note,
       },

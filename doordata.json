@@ -16,6 +16,13 @@
     "EXT1350_30x30_FullAssyPerSheet":1,
     "EXT1350_24x24_FullAssyPerSheet":1.333,
 
+    "FR800": "Here are the FR800 Doors",
+
+    "FR800_12x12_14GA":450,
+    "FR800_12x12_16GA":14,
+    "FR800_12x12_18GA":14,
+    "FR800_12x12_20GA":40,
+
     "GP100": "Here are the GP100 Doors",
 
     "GP_8x8_DoorsPerSheet":36,
