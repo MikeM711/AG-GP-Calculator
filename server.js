@@ -104,6 +104,7 @@ let operators = [
   {name:'B300 18x18', symbol:'B300 18x18'},
   {name:'B300 18x22', symbol:'B300 18x22'},
   {name:'B300 20x20', symbol:'B300 20x20'},
+  {name:'B300 20x30', symbol:'B300 20x30'},
   {name:'B300 22x30', symbol:'B300 22x30'},
   {name:'B300 24x24', symbol:'B300 24x24'},
   {name:'B300 30x30', symbol:'B300 30x30'},
@@ -302,6 +303,14 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.B300_20x20_FullAssyPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'B300 20x30')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.B300_20x30_FullAssyPerSheet;
     value_20GA = 0;
     value_14GA_Al = 0;}
 
