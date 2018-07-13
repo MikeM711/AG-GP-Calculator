@@ -109,6 +109,7 @@ let operators = [
   {name:'B300 24x24', symbol:'B300 24x24'},
   {name:'B300 30x30', symbol:'B300 30x30'},
 
+  {name:'DW400 16x16', symbol:'DW400 16x16'},
 
   {name:'EXT1350 24x24', symbol:'EXT1350 24x24'},
   {name:'EXT1350 30x30', symbol:'EXT1350 30x30'},
@@ -133,6 +134,7 @@ let operators = [
   {name:'GP100 48x48', symbol:'GP100 48x48'},
 
   {name:'RP110 24x24', symbol:'RP110 24x24'},
+  {name:'RP110 24x36', symbol:'RP110 24x36'},
   {name:'RP110 36x48*', symbol:'RP110 36x48*'},
 
   {name:'SMP120 24x24', symbol:'SMP120 24x24'},
@@ -338,6 +340,17 @@ app.route('/calculator')
     value_20GA = 0;
     value_14GA_Al = 0;}
 
+    //DW400 Door Calculatoin
+
+    if ( operator == 'DW400 16x16')
+    {value_14GA = 0;
+    value_16GA_120x48 = value1/config.DW400_16x16_FullAssyPerSheet;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+
     //EXT1350 Door Calculation
 
     if ( operator == 'EXT1350 24x24')
@@ -502,6 +515,16 @@ app.route('/calculator')
     value_18GA = (value1*4) / config.GP_24x24_RFsPerSheet;
     value_20GA = 0;
     value_14GA_Al = 0;}
+
+    if ( operator == 'RP110 24x36' )   
+    {//note = "Can fit +2 exta GP100 24x24s in nest"
+    value_14GA = value1 / config.RP_24x36_DoorsPerSheet;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = ((value1*2) / config.GP_24x24_RFsPerSheet) + ((value1*2) / config.GP_36x36_RFsPerSheet);
+    value_20GA = 0;
+    value_14GA_Al = 0;
+    }
 
     if ( operator == 'RP110 36x48*' )   
     {//note = "Can fit +2 exta GP100 24x24s in nest"

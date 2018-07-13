@@ -18,6 +18,10 @@
     "B300_24x24_FullAssyPerSheet":4,
     "B300_30x30_FullAssyPerSheet":3,
 
+    "DW400": "Here are the DW400 Doors",
+
+    "DW400_16x16_FullAssyPerSheet":8,
+
     "EXT1350": "Here are the EXT1350 Doors",
 
     "EXT1350_30x30_FullAssyPerSheet":1,
@@ -72,6 +76,7 @@
     "RP110": "Here are the RP110 Doors",
 
     "RP_24x24_DoorsPerSheet":8,
+    "RP_24x36_DoorsPerSheet":4,
     "RP_36x48_DoorsPerSheet":2,
 
     "SMP120": "Here are the SMP120 Doors",
