@@ -95,6 +95,7 @@ let PORT = process.env.PORT || 3000;
 // The below operators show up in the front end.  We can use them in our "calculate" section.
 let operators = [
 
+  {name:'AL1500 36x36', symbol:'AL1500 36x36'},
   {name:'AL1500 48x48', symbol:'AL1500 48x48'},
 
   {name:'B300 8x8', symbol:'B300 8x8'},
@@ -241,6 +242,14 @@ app.route('/calculator')
     let note = req.body.note
 
     //AL1500 Door Calculation
+
+    if ( operator == 'AL1500 36x36')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_14GA_Al = value1/config.AL1500_36x36_FullAssyPerSheet;}
 
     if ( operator == 'AL1500 48x48')
     {value_14GA = 0;
