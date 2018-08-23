@@ -23,10 +23,16 @@
 
     "DW400_16x16_FullAssyPerSheet":8,
 
-    "EXT1350": "Here are the EXT1350 Doors",
+    "EXT1350": "Here are the EXT1350-1300 Doors",
 
-    "EXT1350_30x30_FullAssyPerSheet":1,
-    "EXT1350_24x24_FullAssyPerSheet":1.333,
+    "EXT1350_1300_12x12_FullAssyPerSheet":4.58,
+
+    "EXT1350_1300_18x18_FullAssyPerSheet":2.677,
+    "EXT1350_1300_22x36_FullAssyPerSheet":1.322,
+    "EXT1350_1300_24x24_FullAssyPerSheet":1.333,
+    "EXT1350_1300_24x36_FullAssyPerSheet":1.233,
+    "EXT1350_1300_30x30_FullAssyPerSheet":1,
+    "EXT1350_1300_30x36_FullAssyPerSheet":1,
 
     "FR800": "Here are the FR800 Doors",
 

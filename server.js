@@ -1,5 +1,7 @@
 // Questions: (?)
 
+//turn on 'nodemon' before you begin
+
 /*
 
     ----About Node.js----
@@ -112,8 +114,13 @@ let operators = [
 
   {name:'DW400 16x16', symbol:'DW400 16x16'},
 
-  {name:'EXT1350 24x24', symbol:'EXT1350 24x24'},
-  {name:'EXT1350 30x30', symbol:'EXT1350 30x30'},
+  {name:'EXT1350-1300 12x12', symbol:'EXT1350-1300 12x12'},
+  {name:'EXT1350-1300 18x18', symbol:'EXT1350-1300 18x18'},
+  {name:'EXT1350-1300 22x36', symbol:'EXT1350-1300 22x36'},
+  {name:'EXT1350-1300 24x24', symbol:'EXT1350-1300 24x24'},
+  {name:'EXT1350-1300 24x36', symbol:'EXT1350-1300 24x36'},
+  {name:'EXT1350-1300 30x30', symbol:'EXT1350-1300 30x30'},
+  {name:'EXT1350-1300 30x36', symbol:'EXT1350-1300 30x36'},
 
 
   {name:'FR800 12x12', symbol:'FR800 12x12'},
@@ -349,7 +356,7 @@ app.route('/calculator')
     value_20GA = 0;
     value_14GA_Al = 0;}
 
-    //DW400 Door Calculatoin
+    //DW400 Door Calculation
 
     if ( operator == 'DW400 16x16')
     {value_14GA = 0;
@@ -360,21 +367,62 @@ app.route('/calculator')
     value_14GA_Al = 0;}
 
 
-    //EXT1350 Door Calculation
+    //EXT1350-1300 Door Calculation
 
-    if ( operator == 'EXT1350 24x24')
+    if ( operator == 'EXT1350-1300 12x12')
     {value_14GA = 0;
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
-    value_18GA = value1/config.EXT1350_24x24_FullAssyPerSheet;
+    value_18GA = value1/config.EXT1350_1300_12x12_FullAssyPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'EXT1350-1300 18x18')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.EXT1350_1300_18x18_FullAssyPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'EXT1350-1300 22x36')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.EXT1350_1300_22x36_FullAssyPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+
+    if ( operator == 'EXT1350-1300 24x24')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.EXT1350_1300_24x24_FullAssyPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'EXT1350-1300 24x36')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.EXT1350_1300_24x36_FullAssyPerSheet;
     value_20GA = 0;
     value_14GA_Al = 0;}
     
-    if ( operator == 'EXT1350 30x30')
+    if ( operator == 'EXT1350-1300 30x30')
     {value_14GA = 0;
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
-    value_18GA = value1/config.EXT1350_30x30_FullAssyPerSheet;
+    value_18GA = value1/config.EXT1350_1300_30x30_FullAssyPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'EXT1350-1300 30x36')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.EXT1350_1300_30x36_FullAssyPerSheet;
     value_20GA = 0;
     value_14GA_Al = 0;}
 
