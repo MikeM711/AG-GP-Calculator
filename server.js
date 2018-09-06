@@ -103,6 +103,7 @@ let operators = [
   {name:'B300 8x8', symbol:'B300 8x8'},
   {name:'B300 10x10', symbol:'B300 10x10'},
   {name:'B300 12x12', symbol:'B300 12x12'},
+  {name:'B300 12x16', symbol:'B300 12x16'},
   {name:'B300 16x16', symbol:'B300 16x16'},
   {name:'B300 18x18', symbol:'B300 18x18'},
   {name:'B300 18x22', symbol:'B300 18x22'},
@@ -112,9 +113,13 @@ let operators = [
   {name:'B300 24x24', symbol:'B300 24x24'},
   {name:'B300 30x30', symbol:'B300 30x30'},
 
+  {name:'DW400 12x12', symbol:'DW400 12x12'},
   {name:'DW400 16x16', symbol:'DW400 16x16'},
+  {name:'DW400 18x18', symbol:'DW400 18x18'},
+  {name:'DW400 24x24', symbol:'DW400 24x24'},
 
   {name:'EXT1350-1300 12x12', symbol:'EXT1350-1300 12x12'},
+  {name:'EXT1350-1300 16x16', symbol:'EXT1350-1300 16x16'},
   {name:'EXT1350-1300 18x18', symbol:'EXT1350-1300 18x18'},
   {name:'EXT1350-1300 22x36', symbol:'EXT1350-1300 22x36'},
   {name:'EXT1350-1300 24x24', symbol:'EXT1350-1300 24x24'},
@@ -124,17 +129,26 @@ let operators = [
 
 
   {name:'FR800 12x12', symbol:'FR800 12x12'},
+  {name:'FR800 14x14', symbol:'FR800 14x14'},
+  {name:'FR800 16x16', symbol:'FR800 16x16'},
+  {name:'FR800 22x22', symbol:'FR800 22x22'},
+  {name:'FR800 22x36', symbol:'FR800 22x36'},
+  {name:'FR800 24x24', symbol:'FR800 24x24'},
+  {name:'FR800 24x36', symbol:'FR800 24x36'},
 
 
   {name:'GP100 8x8', symbol:'GP100 8x8'},
+  {name:'GP100 10x10', symbol:'GP100 10x10'},
   {name:'GP100 12x12', symbol:'GP100 12x12'},
   {name:'GP100 12x18', symbol:'GP100 12x18'},
+  {name:'GP100 16x16', symbol:'GP100 16x16'},
   {name:'GP100 18x18', symbol:'GP100 18x18'},
   {name:'GP100 20x20', symbol:'GP100 20x20'},
   {name:'GP100 20x30', symbol:'GP100 20x30'},
   {name:'GP100 22x22', symbol:'GP100 22x22'},
   {name:'GP100 22x30', symbol:'GP100 22x30'},
   {name:'GP100 24x24', symbol:'GP100 24x24'},
+  {name:'GP100 24x30', symbol:'GP100 24x30'},
   {name:'GP100 24x36', symbol:'GP100 24x36'},
   {name:'GP100 30x30', symbol:'GP100 30x30'},
   {name:'GP100 36x36*', symbol:'GP100 36x36*'},
@@ -292,6 +306,14 @@ app.route('/calculator')
     value_20GA = 0;
     value_14GA_Al = 0;}
 
+    if ( operator == 'B300 12x16')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.B300_12x16_FullAssyPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
     if ( operator == 'B300 16x16')
     {value_14GA = 0;
     value_16GA_120x48 = 0;
@@ -358,9 +380,33 @@ app.route('/calculator')
 
     //DW400 Door Calculation
 
+    if ( operator == 'DW400 12x12')
+    {value_14GA = 0;
+    value_16GA_120x48 = value1/config.DW400_12x12_FullAssyPerSheet;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
     if ( operator == 'DW400 16x16')
     {value_14GA = 0;
     value_16GA_120x48 = value1/config.DW400_16x16_FullAssyPerSheet;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'DW400 18x18')
+    {value_14GA = 0;
+    value_16GA_120x48 = value1/config.DW400_18x18_FullAssyPerSheet;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'DW400 24x24')
+    {value_14GA = 0;
+    value_16GA_120x48 = value1/config.DW400_24x24_FullAssyPerSheet;
     value_16GA_120x60 = 0;
     value_18GA = 0;
     value_20GA = 0;
@@ -374,6 +420,14 @@ app.route('/calculator')
     value_16GA_120x48 = 0;
     value_16GA_120x60 = 0;
     value_18GA = value1/config.EXT1350_1300_12x12_FullAssyPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'EXT1350-1300 16x16')
+    {value_14GA = 0;
+    value_16GA_120x48 = 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1/config.EXT1350_1300_16x16_FullAssyPerSheet;
     value_20GA = 0;
     value_14GA_Al = 0;}
 
@@ -429,22 +483,70 @@ app.route('/calculator')
     //FR800 Door Calculation
 
     if ( operator == 'FR800 12x12' )   
-    {value_14GA = value1 / config.FR800_12x12_14GA;
+    {value_14GA = value1 / config.FR800_14GA;
     value_16GA_120x48= 0;
     value_16GA_120x60 = value1 / config.FR800_12x12_16GA;
     value_18GA = value1 / config.FR800_12x12_18GA;
     value_20GA = value1 / config.FR800_12x12_20GA;
     value_14GA_Al = 0;}
 
+    if ( operator == 'FR800 14x14' )   
+    {value_14GA = value1 / config.FR800_14GA;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = value1 / config.FR800_14x14_16GA;
+    value_18GA = value1 / config.FR800_14x14_18GA;
+    value_20GA = value1 / config.FR800_14x14_20GA;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'FR800 16x16' )   
+    {value_14GA = value1 / config.FR800_14GA;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = value1 / config.FR800_16x16_16GA;
+    value_18GA = value1 / config.FR800_16x16_18GA;
+    value_20GA = value1 / config.FR800_16x16_20GA;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'FR800 22x22' )   
+    {value_14GA = value1 / config.FR800_14GA;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = value1 / config.FR800_22x22_16GA;
+    value_18GA = value1 / config.FR800_22x22_18GA;
+    value_20GA = value1 / config.FR800_22x22_20GA;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'FR800 24x24' )   
+    {value_14GA = value1 / config.FR800_14GA;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = value1 / config.FR800_24x24_16GA;
+    value_18GA = value1 / config.FR800_24x24_18GA;
+    value_20GA = value1 / config.FR800_24x24_20GA;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'FR800 22x36' )   
+    {value_14GA = value1 / config.FR800_14GA;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = value1 / config.FR800_22x36_16GA;
+    value_18GA = value1 / config.FR800_22x36_18GA;
+    value_20GA = value1 / config.FR800_22x36_20GA;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'FR800 24x36' )   
+    {value_14GA = value1 / config.FR800_14GA;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = value1 / config.FR800_24x36_16GA;
+    value_18GA = value1 / config.FR800_24x36_18GA;
+    value_20GA = value1 / config.FR800_24x36_20GA;
+    value_14GA_Al = 0;}
+
 
 
     //GP100 Door Calculation
 
-    if ( operator == 'GP100 8x8' )   
-    {value_14GA = value1 / config.GP_8x8_DoorsPerSheet;
+    if ( operator == 'GP100 10x10' )   
+    {value_14GA = value1 / config.GP_10x10_DoorsPerSheet;
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
-    value_18GA = (value1*4) / config.GP_8x8_RFsPerSheet;
+    value_18GA = (value1*4) / config.GP_10x10_RFsPerSheet;
     value_20GA = 0;
     value_14GA_Al = 0;}
 
@@ -464,6 +566,14 @@ app.route('/calculator')
     value_20GA = 0;
     value_14GA_Al = 0;
     }
+
+    if ( operator == 'GP100 16x16' )   
+    {value_14GA = value1 / config.GP_16x16_DoorsPerSheet;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = (value1*4) / config.GP_16x16_RFsPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
 
     if ( operator == 'GP100 18x18' )   
     {value_14GA = value1 / config.GP_18x18_DoorsPerSheet;
@@ -514,6 +624,15 @@ app.route('/calculator')
     value_18GA = (value1*4) / config.GP_24x24_RFsPerSheet;
     value_20GA = 0;
     value_14GA_Al = 0;}
+
+    if ( operator == 'GP100 24x30' )   
+    {value_14GA = value1 / config.GP_24x30_DoorsPerSheet;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = ((value1*2) / config.GP_24x24_RFsPerSheet) + ((value1*2) / config.GP_30x30_RFsPerSheet);
+    value_20GA = 0;
+    value_14GA_Al = 0;
+    }
 
     if ( operator == 'GP100 24x36' )   
     {value_14GA = value1 / config.GP_24x36_DoorsPerSheet;

@@ -10,6 +10,7 @@
     "B300_8x8_FullAssyPerSheet":20,
     "B300_10x10_FullAssyPerSheet":13,
     "B300_12x12_FullAssyPerSheet":12,
+    "B300_12x16_FullAssyPerSheet":10,
     "B300_16x16_FullAssyPerSheet":7,
     "B300_18x18_FullAssyPerSheet":7,
     "B300_18x22_FullAssyPerSheet":6,
@@ -21,12 +22,15 @@
 
     "DW400": "Here are the DW400 Doors",
 
+    "DW400_12x12_FullAssyPerSheet":12,
     "DW400_16x16_FullAssyPerSheet":8,
+    "DW400_18x18_FullAssyPerSheet":7,
+    "DW400_24x24_FullAssyPerSheet":4,
 
     "EXT1350": "Here are the EXT1350-1300 Doors",
 
     "EXT1350_1300_12x12_FullAssyPerSheet":4.58,
-
+    "EXT1350_1300_16x16_FullAssyPerSheet":3.196,
     "EXT1350_1300_18x18_FullAssyPerSheet":2.677,
     "EXT1350_1300_22x36_FullAssyPerSheet":1.322,
     "EXT1350_1300_24x24_FullAssyPerSheet":1.333,
@@ -36,20 +40,52 @@
 
     "FR800": "Here are the FR800 Doors",
 
-    "FR800_12x12_14GA":450,
+    "FR800_14GA":450,
+
     "FR800_12x12_16GA":14,
     "FR800_12x12_18GA":14,
     "FR800_12x12_20GA":40,
+
+    "FR800_14x14_16GA":11.247,
+    "FR800_14x14_18GA":12,
+    "FR800_14x14_20GA":32,
+
+    "FR800_16x16_16GA":9.496,
+    "FR800_16x16_18GA":10,
+    "FR800_16x16_20GA":21,
+
+    "FR800_22x22_16GA":5.988,
+    "FR800_22x22_18GA":4,
+    "FR800_22x22_20GA":10,
+
+    "FR800_22x36_16GA":4.172,
+    "FR800_22x36_18GA":4,
+    "FR800_22x36_20GA":6,
+
+    "FR800_24x24_16GA":5.577,
+    "FR800_24x24_18GA":4,
+    "FR800_24x24_20GA":10,
+
+    "FR800_24x36_16GA":4.128,
+    "FR800_24x36_18GA":4,
+    "FR800_24x36_20GA":6,
 
     "GP100": "Here are the GP100 Doors",
 
     "GP_8x8_DoorsPerSheet":36,
     "GP_8x8_RFsPerSheet":132,
 
+    "GP_10x10_DoorsPerSheet":32,
+    "GP_10x10_RFsPerSheet":99,
+
     "GP_12x12_DoorsPerSheet":21,
     "GP_12x12_RFsPerSheet":96,
 
     "GP_12x18_DoorsPerSheet":15,
+
+    "GP100_NOTE1": "For below 16x16, laser sheet margins are different                  between common folder and typical margins.                          I am using typical margins.",
+    "GP_16x16_DoorsPerSheet":12,
+    "GP_16x16_RFsPerSheet":78,
 
     "GP_18x18_DoorsPerSheet":10,
     "GP_18x18_RFsPerSheet":66,
@@ -66,6 +102,8 @@
 
     "GP_24x24_DoorsPerSheet":8,
     "GP_24x24_RFsPerSheet":51,
+
+    "GP_24x30_DoorsPerSheet":6,
 
     "GP_24x36_DoorsPerSheet":6,
 
