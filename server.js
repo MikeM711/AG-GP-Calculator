@@ -542,6 +542,14 @@ app.route('/calculator')
 
     //GP100 Door Calculation
 
+    if ( operator == 'GP100 8x8' )   
+    {value_14GA = value1 / config.GP_8x8_DoorsPerSheet;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = (value1*4) / config.GP_8x8_RFsPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
     if ( operator == 'GP100 10x10' )   
     {value_14GA = value1 / config.GP_10x10_DoorsPerSheet;
     value_16GA_120x48= 0;
