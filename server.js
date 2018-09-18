@@ -167,11 +167,15 @@ let operators = [
 
   {name:'UAD200 6x6',symbol:'UAD200 6x6'},
   {name:'UAD200 8x8',symbol:'UAD200 8x8'},
+  {name:'UAD200 10x10',symbol:'UAD200 10x10'},
   {name:'UAD200 12x12',symbol:'UAD200 12x12'},
   {name:'UAD200 14x14',symbol:'UAD200 14x14'},
   {name:'UAD200 16x16',symbol:'UAD200 16x16'},
   {name:'UAD200 18x18',symbol:'UAD200 18x18'},
+  {name:'UAD200 20x20',symbol:'UAD200 20x20'},
   {name:'UAD200 24x24',symbol:'UAD200 24x24'},
+  {name:'UAD200 24x36',symbol:'UAD200 24x36'},
+  {name:'UAD200 36x36',symbol:'UAD200 36x36'},
   
   
 ];
@@ -783,6 +787,14 @@ app.route('/calculator')
     value_20GA = 0;
     value_14GA_Al = 0;}
 
+    if ( operator == 'UAD200 10x10' )   
+    {value_14GA = 0;
+    value_18GA = 0;
+    value_16GA_120x60 = value1 / config.UAD_10x10_DoorsPerSheet;
+    value_16GA_120x48 = (value1*4) / config.UAD_10x10_RFsPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
     if ( operator == 'UAD200 12x12' )   
     {value_14GA = 0;
     value_18GA = 0;
@@ -815,11 +827,35 @@ app.route('/calculator')
     value_20GA = 0;
     value_14GA_Al = 0;}
 
+    if ( operator == 'UAD200 20x20' )   
+    {value_14GA = 0;
+    value_18GA = 0;
+    value_16GA_120x60 = value1 / config.UAD_20x20_DoorsPerSheet;
+    value_16GA_120x48 = (value1*4) / config.UAD_20x20_RFsPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
     if ( operator == 'UAD200 24x24' )   
     {value_14GA = 0;
     value_18GA = 0;
     value_16GA_120x60 = value1 / config.UAD_24x24_DoorsPerSheet;
     value_16GA_120x48 = (value1*4) / config.UAD_24x24_RFsPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'UAD200 24x36' )   
+    {value_14GA = 0;
+    value_18GA = 0;
+    value_16GA_120x60 = value1 / config.UAD_24x36_DoorsPerSheet;
+    value_16GA_120x48 = ((value1*2) / config.UAD_24x24_RFsPerSheet) + ((value1*2) / config.UAD_36x36_RFsPerSheet);
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'UAD200 36x36' )   
+    {value_14GA = 0;
+    value_18GA = 0;
+    value_16GA_120x60 = value1 / config.UAD_36x36_DoorsPerSheet;
+    value_16GA_120x48 = (value1*4) / config.UAD_36x36_RFsPerSheet;
     value_20GA = 0;
     value_14GA_Al = 0;}
 

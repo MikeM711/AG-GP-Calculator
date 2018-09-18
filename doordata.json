@@ -149,6 +149,9 @@
     "UAD_8x8_DoorsPerSheet":55,
     "UAD_8x8_RFsPerSheet":120,
 
+    "UAD_10x10_DoorsPerSheet":36,
+    "UAD_10x10_RFsPerSheet":117,
+
     "UAD_12x12_DoorsPerSheet":32,
     "UAD_12x12_RFsPerSheet":99,
 
@@ -161,10 +164,16 @@
     "UAD_18x18_DoorsPerSheet":10,
     "UAD_18x18_RFsPerSheet":68,
 
+    "UAD_20x20_DoorsPerSheet":10,
+    "UAD_20x20_RFsPerSheet":66,
+
     "UAD_24x24_DoorsPerSheet":8,
     "UAD_24x24_RFsPerSheet":47,
 
+    "UAD_24x36_DoorsPerSheet":6,
 
+    "UAD_36x36_DoorsPerSheet":3,
+    "UAD_36x36_RFsPerSheet":36,
 
 
 
