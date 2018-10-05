@@ -1,6 +1,6 @@
 **Note to self**: some spaghetti code involved, needs tidying
 
-#WB Door Calculator#
+# WB Door Calculator
 
 Automatic solving
 
