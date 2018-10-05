@@ -1,5 +1,7 @@
 **Note to self**: some spaghetti code involved, needs tidying
 
+#WB Door Calculator#
+
 Automatic solving
 
 Dropdown menu: WB Doors
