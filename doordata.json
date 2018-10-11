@@ -25,7 +25,9 @@
     "DW400_12x12_FullAssyPerSheet":12,
     "DW400_16x16_FullAssyPerSheet":8,
     "DW400_18x18_FullAssyPerSheet":7,
+    "DW400_22x22_FullAssyPerSheet":5,
     "DW400_24x24_FullAssyPerSheet":4,
+    "DW400_24x48_FullAssyPerSheet":2,
 
     "EXT1350": "Here are the EXT1350-1300 Doors",
 
@@ -75,6 +77,8 @@
     "GP_8x8_DoorsPerSheet":36,
     "GP_8x8_RFsPerSheet":132,
 
+    "GP_8x16_DoorsPerSheet":24,
+
     "GP_10x10_DoorsPerSheet":32,
     "GP_10x10_RFsPerSheet":99,
 
@@ -99,6 +103,7 @@
     "GP_22x22_RFsPerSheet":54,
 
     "GP_22x30_DoorsPerSheet":6,
+    "GP_22x36_DoorsPerSheet":6,
 
     "GP_24x24_DoorsPerSheet":8,
     "GP_24x24_RFsPerSheet":51,
