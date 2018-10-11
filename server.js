@@ -144,6 +144,7 @@ let operators = [
   {name:'GP100 10x10', symbol:'GP100 10x10'},
   {name:'GP100 12x12', symbol:'GP100 12x12'},
   {name:'GP100 12x18', symbol:'GP100 12x18'},
+  {name:'GP100 14x14', symbol:'GP100 14x14'},
   {name:'GP100 16x16', symbol:'GP100 16x16'},
   {name:'GP100 18x18', symbol:'GP100 18x18'},
   {name:'GP100 20x20', symbol:'GP100 20x20'},
@@ -606,6 +607,14 @@ app.route('/calculator')
     value_20GA = 0;
     value_14GA_Al = 0;
     }
+
+    if ( operator == 'GP100 14x14' )   
+    {value_14GA = value1 / config.GP_14x14_DoorsPerSheet;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = (value1*4) / config.GP_14x14_RFsPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
 
     if ( operator == 'GP100 16x16' )   
     {value_14GA = value1 / config.GP_16x16_DoorsPerSheet;

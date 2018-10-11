@@ -87,6 +87,9 @@
 
     "GP_12x18_DoorsPerSheet":15,
 
+    "GP_14x14_DoorsPerSheet":18,
+    "GP_14x14_RFsPerSheet":87,
+
     "GP100_NOTE1": "For below 16x16, laser sheet margins are different                  between common folder and typical margins.                          I am using typical margins.",
     "GP_16x16_DoorsPerSheet":12,
     "GP_16x16_RFsPerSheet":78,
