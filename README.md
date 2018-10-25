@@ -1,12 +1,14 @@
-Automatic solving
+**Note to self**: some spaghetti code involved, needs tidying
 
-Dropdown menu:
-Add, subtract, multiply, divide.
+# WB Door Calculator
 
-Two input boxes that take numbers.
+- Automatic solving
 
-Calculate button that sends method name and numbers to the back end as json.
+  - Dropdown menu: WB Doors
+  - One input box that takes QTY.
 
-Dropdown choices come from rest api.
+- Calculate button that sends method name and numbers to the back end as json.
 
-Display calculated result.
+- Dropdown choices come from rest api.
+
+- Displays calculated result as well as combined result.

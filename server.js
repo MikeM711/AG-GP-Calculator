@@ -146,6 +146,7 @@ let operators = [
   {name:'GP100 12x18', symbol:'GP100 12x18'},
   {name:'GP100 14x14', symbol:'GP100 14x14'},
   {name:'GP100 16x16', symbol:'GP100 16x16'},
+  {name:'GP100 16x24', symbol:'GP100 16x24'},
   {name:'GP100 18x18', symbol:'GP100 18x18'},
   {name:'GP100 20x20', symbol:'GP100 20x20'},
   {name:'GP100 20x30', symbol:'GP100 20x30'},
@@ -160,10 +161,13 @@ let operators = [
   {name:'GP100 36x48*', symbol:'GP100 36x48*'},
   {name:'GP100 48x48', symbol:'GP100 48x48'},
 
+  {name:'RDW410 16x16', symbol:'RDW410 16x16'},
+
   {name:'RP110 24x24', symbol:'RP110 24x24'},
   {name:'RP110 24x36', symbol:'RP110 24x36'},
   {name:'RP110 36x48*', symbol:'RP110 36x48*'},
 
+  {name:'SMP120 18x18', symbol:'SMP120 18x18'},
   {name:'SMP120 24x24', symbol:'SMP120 24x24'},
   {name:'SMP120 24x48', symbol:'SMP120 24x48'},
   {name:'SMP120 48x48', symbol:'SMP120 48x48'},
@@ -181,7 +185,8 @@ let operators = [
   {name:'UAD200 24x24',symbol:'UAD200 24x24'},
   {name:'UAD200 24x36',symbol:'UAD200 24x36'},
   {name:'UAD200 36x36',symbol:'UAD200 36x36'},
-  
+  {name:'UAD200 36x48',symbol:'UAD200 36x48'},
+  {name:'UAD200 48x48',symbol:'UAD200 48x48'}, 
   
 ];
 
@@ -624,6 +629,15 @@ app.route('/calculator')
     value_20GA = 0;
     value_14GA_Al = 0;}
 
+    if ( operator == 'GP100 16x24' )   
+    {value_14GA = value1 / config.GP_16x24_DoorsPerSheet;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = ((value1*2) / config.GP_16x16_RFsPerSheet) + ((value1*2) / config.GP_24x24_RFsPerSheet);
+    value_20GA = 0;
+    value_14GA_Al = 0;
+    }
+
     if ( operator == 'GP100 18x18' )   
     {value_14GA = value1 / config.GP_18x18_DoorsPerSheet;
     value_16GA_120x48= 0;
@@ -739,6 +753,15 @@ app.route('/calculator')
     }
 // had a very bad coding error at the top ^, `}` bracket didn't encapsulate the full `if` statement for the GP 48x48s.....
 
+    //RDW410 Door Calculation
+
+    if ( operator == 'RDW410 16x16')
+    {value_14GA = 0;
+    value_16GA_120x48 = value1/config.RDW410_16x16_FullAssyPerSheet;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
 
     //RP110 Door Calculation
 
@@ -770,14 +793,15 @@ app.route('/calculator')
     value_14GA_Al = 0;
     }
 
-/*
-{name:'SMP120 24x24', symbol:'SMP120 24x24'},
-  {name:'SMP120 24x48', symbol:'SMP120 24x48'},
-  {name:'SMP120 48x48', symbol:'SMP120 48x48'},
+    //SMP120 Door Calculation
 
-*/
-
-    //SMp120 Door Calculation
+    if ( operator == 'SMP120 18x18')
+    {value_14GA = value1 / config.SMP_18x18_DoorsPerSheet;
+    value_16GA_120x48 = value1 / config.SMP_18x18_DoorsWorthRFsPerSheet;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_14GA_Al = 0}
 
     if ( operator == 'SMP120 24x24')
     {value_14GA = value1 / config.SMP_24x24_DoorsPerSheet;
@@ -902,6 +926,22 @@ app.route('/calculator')
     value_18GA = 0;
     value_16GA_120x60 = value1 / config.UAD_36x36_DoorsPerSheet;
     value_16GA_120x48 = (value1*4) / config.UAD_36x36_RFsPerSheet;
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'UAD200 36x48' )   
+    {value_14GA = 0;
+    value_18GA = 0;
+    value_16GA_120x60 = value1 / config.UAD_36x48_DoorsPerSheet;
+    value_16GA_120x48 = ((value1*2) / config.UAD_36x36_RFsPerSheet) + ((value1*2) / config.UAD_48x48_RFsPerSheet);
+    value_20GA = 0;
+    value_14GA_Al = 0;}
+
+    if ( operator == 'UAD200 48x48' )   
+    {value_14GA = 0;
+    value_18GA = 0;
+    value_16GA_120x60 = value1 / config.UAD_48x48_DoorsPerSheet;
+    value_16GA_120x48 = (value1*4) / config.UAD_48x48_RFsPerSheet;
     value_20GA = 0;
     value_14GA_Al = 0;}
 

@@ -94,6 +94,8 @@
     "GP_16x16_DoorsPerSheet":12,
     "GP_16x16_RFsPerSheet":78,
 
+    "GP_16x24_DoorsPerSheet":10,
+
     "GP_18x18_DoorsPerSheet":10,
     "GP_18x18_RFsPerSheet":66,
 
@@ -126,6 +128,10 @@
     "GP_48x48_DoorsPerSheet":2,
     "GP_48x48_RFsPerSheet":22,
 
+    "RDW410": "Here are the RDW410 Doors",
+
+    "RDW410_16x16_FullAssyPerSheet":7,
+
     "RP110": "Here are the RP110 Doors",
 
     "RP_24x24_DoorsPerSheet":8,
@@ -134,6 +140,9 @@
 
     "SMP120": "Here are the SMP120 Doors",
     "SMP120_INFO": "SMP RETURN FRAMES ARE CALCULATED FROM PUNCH",
+
+    "SMP_18x18_DoorsPerSheet":10,
+    "SMP_18x18_DoorsWorthRFsPerSheet":43,
 
     "SMP_24x24_DoorsPerSheet":8,
     "SMP_24x24_DoorsWorthRFsPerSheet":30,
@@ -183,9 +192,10 @@
     "UAD_36x36_DoorsPerSheet":3,
     "UAD_36x36_RFsPerSheet":36,
 
+    "UAD_36x48_DoorsPerSheet":3,
 
-
-
+    "UAD_48x48_DoorsPerSheet":2,
+    "UAD_48x48_RFsPerSheet":24,
 
     "END":"End JSON"
   }
