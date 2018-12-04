@@ -10,7 +10,7 @@ app.controller('AppController', ['$http', function ($http) {
   // var apiRoute = 'https://ag-wb-calculator.herokuapp.com/calculator';
 
   /*
-  For next time: Just like I sain in server.js - clean up res.json. 
+  For next time: Just like I said in server.js - clean up res.json. 
   I think it would be great if we tossed in all of the values into the "result" object, instead of these strange A,B,C properties I've made
   */
 

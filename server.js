@@ -11,7 +11,7 @@ let PORT = process.env.PORT || 3000;
 var config = require('./doordata.json');
 
 /*
-For next time: Keep everyting in a database (Firebase/MongoDB) (or the very least consult JSON) rather than a huge operators list below
+For next time: Keep everything in a database (Firebase/MongoDB) (or the very least consult JSON) rather than a huge operators list below
 */
 
 let operators = [
@@ -170,7 +170,8 @@ app.route('/calculator')
 
         **I would definitely rather all data in some form of a database, not in the code itself, this will help TREMENDOUSLY**
         
-        Adding new items is more work than it needs to be! And the amount of space these if statements take up is very overwhelming - Make a function that can handle every operator instead, you can make this much much shorter.
+        Adding new items is more work than it needs to be! And the amount of space these if statements take up is very overwhelming
+        Make a function that can handle every operator instead, you can make this much much shorter.
         */
 
         //AL1500 Door Calculation
