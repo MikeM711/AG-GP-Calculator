@@ -1,4 +1,6 @@
-**Note to self**: Check out my notes on how I would improve this project if I were to create it again
+**Note to self**: Check out my notes on how I would improve this project if I were to create it again.  
+
+To add: Testing would be fantastic, much like my tests in my [Coding Callenges](https://github.com/MikeM711/Coding-Challenges) Repository 
 
 # WB Door Calculator
 
