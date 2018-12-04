@@ -1,4 +1,4 @@
-**Note to self**: some spaghetti code involved, needs tidying
+**Note to self**: Check out my notes on how I would improve this project if I were to create it again
 
 # WB Door Calculator
 
