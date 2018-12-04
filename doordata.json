@@ -1,5 +1,4 @@
 {
-
     "AL1500": "Here are the AL1500 Doors",
 
     "AL1500_48x48_FullAssyPerSheet":1.87,
@@ -90,7 +89,8 @@
     "GP_14x14_DoorsPerSheet":18,
     "GP_14x14_RFsPerSheet":87,
 
-    "GP100_NOTE1": "For below 16x16, laser sheet margins are different                  between common folder and typical margins.                          I am using typical margins.",
+    "GP100_NOTE1": "For below 16x16, laser sheet margins are different                  between common folder and typical margins. I am using typical margins.",
+
     "GP_16x16_DoorsPerSheet":12,
     "GP_16x16_RFsPerSheet":78,
 
@@ -152,7 +152,6 @@
 
     "SMP_48x48_DoorsPerSheet":2,
     "SMP_48x48_DoorsWorthRFsPerSheet":14.666,
-
 
     "TB1210": "Here are the TB1210 Doors",
 

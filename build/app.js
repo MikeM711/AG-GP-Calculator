@@ -1,29 +1,18 @@
-// below calls for angular module
-
 /*
-WHAT I LEARNED
-Sometimes mobile + localhost will not work.  When you deploy to heroku, it works better! Idk lol fine
+Below in this code, I have commented how this project can be improved
 */
 
 var app = angular.module('App', []);
 
+app.controller('AppController', ['$http', function ($http) {
 
-//idk lol
-var sum = 0
+  var apiRoute = 'http://localhost:3000/calculator';
+  // var apiRoute = 'https://ag-wb-calculator.herokuapp.com/calculator';
 
-//BELOW IS MY APP CONTROLLER! - Where everything is hooked up to
-app.controller('AppController', ['$http', function($http) {
-
-  //Because I am currently using localhost, I use the localhost:3000/calculator as my apiRoute
-
-   //var apiRoute = 'http://localhost:3000/calculator';
-
-   var apiRoute = 'https://ag-wb-calculator.herokuapp.com/calculator';
-
-
-
-  // this is the location of the creator's heroku app
-  //var apiRoute = 'https://mean-calculator.herokuapp.com/calculator';
+  /*
+  For next time: Just like I sain in server.js - clean up res.json. 
+  I think it would be great if we tossed in all of the values into the "result" object, instead of these strange A,B,C properties I've made
+  */
 
   var _this = this;
   _this.results = [];
@@ -35,56 +24,41 @@ app.controller('AppController', ['$http', function($http) {
   _this.E = []; //20GA
   _this.F = []; //14GA Aluminum
 
-
-  //the below equation is not needed
-  //_this.sumA = sum
-
-console.log("work pls");
   $http.get(apiRoute)
-  
-  .then(function(res) {
-    _this.operators = res.data.operators;
-  }, function(res) {
-    console.log(res);
-  });
 
-  _this.calculate = function(operator, value1) {
+    .then(function (res) {
+      _this.operators = res.data.operators;
+    }, function (res) {
+      console.log(res);
+    });
+
+  _this.calculate = function (operator, value1) {
     _this.error = validate(operator, value1);
 
-    //BELOW POSTS ALL RESULTS!!
     if (!_this.error) {
-      $http.post(apiRoute, {operator, value1})
-        .then(function(res) {
-          //All of this below pushes stuff into arrays... not what I want....
-          
+      $http.post(apiRoute, { operator, value1 })
+        .then(function (res) {
+
           _this.results.push(res.data.result)
-          //_this.A = 7
-         // _this.A.push(res.data.A) - Do I even need this???
-         // _this.B.push(res.data.B)
 
+          _this.sumA = res.data.A
+          _this.sumB = res.data.B
+          _this.sumC = res.data.C
+          _this.sumD = res.data.D
+          _this.sumE = res.data.E
+          _this.sumF = res.data.F
 
-  //Below not pushed into array - what I want for "Resuls Combined!"
-       _this.sumA = res.data.A
-       _this.sumB = res.data.B
-       _this.sumC = res.data.C
-       _this.sumD = res.data.D
-       _this.sumE = res.data.E
-       _this.sumF = res.data.F
+        }, function (res) {
 
-        
-        }, function(res) {
-          console.log(res);
         });
     }
-    //ABOVE POSTS ALL RESULTS!!
   }
 }]);
 
-// BELOW: Not having below does not allow me to enter anything
 function validate(operator, value1) {
   if (!operator) return 'Please select a Door.';
   if ((!value1 && value1 != 0) || (!value1 && value1 != 0)) return 'Please enter a QTY.';
-  if(value1 <=0) return 'Choose a number greater than zero.'
+  if (value1 <= 0) return 'Choose a number greater than zero.'
   if (value1 % 1 != 0) return 'Choose a whole number.'
   return null;
 }
